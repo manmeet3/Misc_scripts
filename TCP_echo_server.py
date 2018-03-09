@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
-# TCP echo server 
+# Python 3.5
+# TCP echo server - Echoes back the data sent to given IP address and port #
 # Created as a reference for testing various utilities and hardware over the network
 
 
@@ -26,7 +27,8 @@ while True:
         print ("echoing")
         connection.sendall(data)
       else:
-        print ('no more data from')
-		  
+        print ('connection closed by %s', client_address)
+        sys.exit()
   finally:
     connection.close()
+	
