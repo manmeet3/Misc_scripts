@@ -1,9 +1,11 @@
 #!/usr/bin/python
 
-# Python 3.5
-# TCP echo server - Echoes back the data sent to given IP address and port #
-# Created as a reference for testing various utilities and hardware over the network
+''' 
+TCP echo server 
 
+Echoes back the data to the sending TCP client.
+Exits on receiving an empty packet.
+'''
 
 import socket
 import sys

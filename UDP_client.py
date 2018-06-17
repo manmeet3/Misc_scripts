@@ -1,20 +1,29 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
-# UDP test utility for use with Digilent Zybo z7-20 running lwip
+''' 
+UDP Client
 
-import socket
+Takes input from stdin and sends it over a UDP socket.
+Loops until 'q' entered for quitting.
+'''
+
 import sys
+import socket
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-server_address=('172.0.1.10', 7)
+server_address=('localhost', 12000)
 message = 'sample message'  # zybo z7 lwip IP address
 
 try:
-    print('Sending: "%s":' % message)
-    sent = sock.sendto(str.encode(message),server_address)
+  while 1:
+    line = input ("Enter a message or q to quit: ")
+    if (line == 'q' or line == 'Q'): 
+      sys.exit()
+
+    print('Sending: "%s":' % line)
+    sent = sock.sendto(str.encode(line),server_address)
 	
-    print("waiting for response...")
     data, server = sock.recvfrom(2048)
     print("Recevied: %s" % data) 
 	

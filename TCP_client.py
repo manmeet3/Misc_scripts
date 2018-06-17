@@ -1,8 +1,11 @@
 #!/usr/bin/python
 
-# Python 3.5
-# TCP client - Takes input from stdin and sends it over a TCP socket
-# Created as a reference for testing various utilities and hardware over the network
+'''
+TCP client 
+
+Takes input from stdin and sends it over a TCP socket.
+Loops until 'q' entered for quitting.
+'''
 
 import sys
 import socket
